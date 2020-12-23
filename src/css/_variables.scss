@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+// colors
+
+$lime-green: hsl(163, 72%, 41%);
+$bright-red: hsl(356, 69%, 56%);
+$facebook: hsl(208, 92%, 53%);
+$twitter: hsl(203, 89%, 53%);
+$instagram: linear-gradient(230deg, hsl(329, 70%, 58%) 0%,hsl(37, 97%, 70%) 100%);
+$youtube: hsl(348, 97%, 39%);
+
+$toggle-dark: linear-gradient(230deg,hsl(146, 68%, 55%) 0%,hsl(210, 78%, 56%) 100%);
+$toggle-light: hsl(230, 22%, 74%);
+
+$light: hsl(0, 0%, 100%);
+
+// dark theme
+$dark-blue-bg: hsl(230, 17%, 14%);
+$dark-blue: hsl(232, 19%, 15%);
+$desat-blue-card: hsl(228, 28%, 20%);
+$desat-blue-text: hsl(228, 34%, 66%);
+
+
+// light theme
+$pale-blue-bg: hsl(225, 100%, 98%);
+$light-gray-blue: hsl(227, 47%, 96%);
+$dark-gray-blue: hsl(228, 12%, 44%);
+$dark-blue-text: hsl(230, 17%, 14%);
+
+// typography
+
+$font-inter: 'Inter', sans-serif;
+
+@mixin font400 {
+    font-family: $font-inter;
+    font-weight: 400;
+}
+
+@mixin font700 {
+    font-family: $font-inter;
+    font-weight: 700;
+}

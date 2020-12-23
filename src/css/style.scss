@@ -1,0 +1,270 @@
+@import 'variables';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    font-family: $font-inter; 
+    color: $dark-blue-text;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem 0 4rem;
+}
+
+.dark-mode {
+    display: flex;
+    align-items: center;
+    .dark-mode-btn {
+        width: 50px;
+        height: 25px;
+        border-radius: 30px;
+        background: $toggle-light;
+        display: block;
+        padding: 3.5px;
+        margin-left: 1rem;
+        cursor: pointer;
+        .dark-mode-switch {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: $light;
+            display: block;
+            transform: translateX(145%);
+            transition: all 0.5s ease;
+        }
+    }
+}
+
+.gain-loss {
+    display: flex;
+    align-items: center;
+    color: $lime-green;
+    p {
+        padding-left: 0.5rem;
+    }
+}
+
+header {
+    padding: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include font700;
+    .header-left {
+        .total-followers {
+            color: $dark-gray-blue;
+            padding-top: 0.3rem;
+        }
+    }
+    .header-right {
+        .dark-mode {
+            span {
+                &:first-child {
+                    color: $toggle-light;
+                }
+            }
+        }
+    }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    text-align: center;
+    .stat-card {
+        background: $light-gray-blue;
+        border-radius: 5px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include font700;
+        position: relative;
+        overflow: hidden;
+        .username {
+            display: flex;
+            align-items: center;
+            p {
+                padding-left: 0.5rem;
+                color: $dark-gray-blue;
+            }
+        }
+        .stat {
+            padding: 1rem 0;
+            .follow-sub {
+                font-size: 3rem;
+            }
+            p {
+                &:last-child {
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                    font-size: 14px;
+                    @include font400;
+                    color:  $dark-gray-blue;
+                }
+            }
+        }
+        &::after {
+            content: '';
+            width: 100%;
+            height: 5px;
+            position: absolute;
+            top: 0;
+        }
+    }
+    #facebook {
+        &::after { background: $facebook; }
+    }
+    #twitter {
+        &::after { background: $twitter; }
+    }
+    #instagram {
+        &::after { background: $instagram; }
+    }
+    #youtube {
+        &::after { background: $youtube; }
+        .gain-loss {
+            color: $bright-red;
+        }
+    }
+}
+
+.overview {
+    h2 {
+        margin: 3rem 0 2rem;
+        color: $dark-gray-blue;
+    }
+    .overview-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        .overview-card {
+            background: $light-gray-blue;
+            border-radius: 5px;
+            padding: 1.5rem 2rem;
+            @include font700;
+            .card-head, .card-details {
+                display: flex;
+                justify-content: space-between;
+            }
+            .card-head {
+                align-items: center;
+                .title {
+                    text-transform: capitalize;
+                    color:  $dark-gray-blue;
+                }
+            }
+            .card-details {
+                margin-top: 1rem;
+                align-items: flex-end;
+                .number {
+                    font-size: 2.3rem;
+                }
+            }
+            &:nth-child(2), &:nth-child(7), &:nth-child(8) {
+                .card-details {
+                    .gain-loss {
+                        color: $bright-red;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    background: $dark-blue-bg;
+    .dark-mode {
+        .dark-mode-btn {
+            background: $toggle-dark;
+            .dark-mode-switch {
+                transform: translateX(0);
+                background: $dark-blue-bg;
+            }
+        }
+    }
+    header {
+        h1 { color: $light; }
+        .total-followers { color: $desat-blue-text; }
+    }
+    .stats {
+        .stat-card {
+            background: $desat-blue-card;
+            .username {
+                p {
+                    color: $desat-blue-text;
+                }
+            }
+            .stat {
+                .follow-sub {
+                    color: $light;
+                }
+                p {
+                    &:last-child {
+                        color:  $desat-blue-text;
+                    }
+                }
+            }
+        }
+    }
+    .overview {
+        h2 {
+            color: $light;
+        }
+        .overview-stats {
+            .overview-card {
+                background: $desat-blue-card;
+                .card-head {
+                    .title {
+                        color: $desat-blue-text;
+                    }
+                }
+                .card-details {
+                    .number {
+                        color: $light;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// responsive breakpoint(max-width: 376px)
+
+@media (max-width: 376px) {
+    .container {
+        padding: 1rem 1rem 3rem;
+    }
+    header {
+        display: block;
+        .header-left {
+            padding: 0 0 1.5rem;
+            border-bottom: 1px solid $dark-gray-blue;
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+        .header-right {
+            padding: 1rem 0;
+            .dark-mode {
+                justify-content: space-between;
+            }
+        }
+    }
+    .stats {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .overview {
+        .overview-stats {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
